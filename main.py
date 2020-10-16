@@ -136,7 +136,9 @@ class TaskList:
             print("You can't delete items!")
         else:
             #do the delete...
-            if id < 1 or id > len(self.__taskList) - 1:
+            if len(self.__taskList) == 0:
+                print("No tasks to delete!")
+            elif id < 1 or id > len(self.__taskList):
                 print ("Enter a valid task ID")
             else:
                 del(self.__taskList[id - 1])
