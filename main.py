@@ -125,6 +125,12 @@ class TaskList:
             #run clear method on taskList
             self.__taskList.clear()
 
+    def deleteItem(self, user, pin, id):
+        if type(user) != Admin or user.pin != pin:
+            print("You can't delete items!")
+        else:
+            #do the delete...
+
     # show task list - only active tasks
     def showTaskList(self):
         # print a title
