@@ -63,7 +63,13 @@ class Admin(User):
         if(pin != self.pin):
             print("Incorrect pin!")
             return
-        taskList.clearList(self)
+        taskList.clearList(self, pin)
+
+    def deleteItem(self, taskList, pin, id):
+        if(pin != self.pin):
+            print("Incorrect pin!")
+            return
+        taskList.deleteItem(self, pin, id)
 
     #str and repr methods inherited from User
 
