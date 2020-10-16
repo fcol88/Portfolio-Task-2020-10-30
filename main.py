@@ -23,12 +23,12 @@ class User:
             pin = 0
         #if pin is less than zero, set it to 0000
         if pin < 0:
-            print("Pin set to 0000")
             self.__pin = "0000"
+            print("Pin set to 0000")
         #if pin is greater than 9999, set it to 9999 and notify the user
         elif pin > 9999:
-            print("Pin set to 9999")
             self.__pin = "9999"
+            print("Pin set to 9999")
         #otherwise, grab the current value and set it to whatever they've entered
         else:
             self.__pin = str(pin).zfill(4)
