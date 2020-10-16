@@ -21,10 +21,11 @@ regularUser.addTask(aTaskListVariable, "A task to be added", "1234")
 regularUser.whoAmI()
 ```
 
-An Admin can perform the same tasks and also clear the list, like so:
+An Admin can perform the same tasks, as well as also clearing the list and deleting an individual item by ID (if there are items to delete) like so:
 
 ```
 adminUser.clearList(aTaskListVariable, "4246")
+adminUser.deleteItem(aTaskListVariable, "4246", 1)
 ```
 
 Tasks have an assigned User, description, created date and a status. When a task is moved to completed, it is given a completed date and the status is changed to "Done".
