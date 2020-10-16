@@ -32,7 +32,7 @@ class User:
         #otherwise, grab the current value and set it to whatever they've entered
         else:
             self.__pin = str(pin).zfill(4)
-            print("Pin set to " + str(pin.zfill(4)))
+            print("Pin set to " + str(pin).zfill(4))
 
     #add task method - accepts the TaskList variable as a parameter and the description of the task
     def addTask(self, taskList, description, pin):
@@ -63,7 +63,13 @@ class Admin(User):
         if(pin != self.pin):
             print("Incorrect pin!")
             return
-        taskList.clearList(self)
+        taskList.clearList(self, pin)
+    # additional functionality specific to Admin - delete a specific task from the list
+    def deleteItem(self, taskList, pin, id):
+        if(pin != self.pin):
+            print("Incorrect pin!")
+            return
+        taskList.deleteItem(self, pin, id)
 
     #str and repr methods inherited from User
 
@@ -124,6 +130,24 @@ class TaskList:
         else:
             #run clear method on taskList
             self.__taskList.clear()
+
+    # delete a specific task from the list - not really the intended means of calling the method,
+    # but can be done this way
+    def deleteItem(self, user, pin, id):
+        # prevent unauthorised users from deleting
+        if type(user) != Admin or user.pin != pin:
+            print("You can't delete items!")
+        else:
+            # if the list is empty, notify the user
+            if len(self.__taskList) == 0:
+                print("No tasks to delete!")
+            # otherwise if it's an invalid ID, tell them that too
+            elif id < 1 or id > len(self.__taskList):
+                print ("Enter a valid task ID")
+            # otherwise delete the item they've specified, adjusting for off-by-one
+            else:
+                del(self.__taskList[id - 1])
+                print("Task deleted")
 
     # show task list - only active tasks
     def showTaskList(self):
