@@ -168,7 +168,7 @@ class TaskList:
             #subtract 1 from the ID to prevent off-by-one
             print(self.__taskList[int(taskToComplete) - 1].completeTask())
         except:
-            print("Whoops! Did you enter a valid task ID?")
+            print("You must enter a valid task ID")
 
     #code used in more than one place so extracted into separate function
     def printTask(self, index, task):
