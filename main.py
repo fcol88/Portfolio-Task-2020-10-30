@@ -205,6 +205,6 @@ class Audit:
 #instantiate an example task list
 tasks = TaskList()
 #instantiate an example user
-regularUser = User("Matt", "Graham", 1234)
+regularUser = User("Regular", "User", 1234)
 #instantiate an example admin
-adminUser = Admin("Gav", "McClary", 4246)
+adminUser = Admin("Admin", "User", 4246)
