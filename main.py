@@ -32,7 +32,7 @@ class User:
         #otherwise, grab the current value and set it to whatever they've entered
         else:
             self.__pin = str(pin).zfill(4)
-            print("Pin set to " + str(pin.zfill(4)))
+            print("Pin set to " + str(pin).zfill(4))
 
     #add task method - accepts the TaskList variable as a parameter and the description of the task
     def addTask(self, taskList, description, pin):
@@ -136,6 +136,11 @@ class TaskList:
             print("You can't delete items!")
         else:
             #do the delete...
+            if id < 1 or id > len(self.__taskList) - 1:
+                print ("Enter a valid task ID")
+            else:
+                del(self.__taskList[id - 1])
+                print("Task deleted")
 
     # show task list - only active tasks
     def showTaskList(self):
