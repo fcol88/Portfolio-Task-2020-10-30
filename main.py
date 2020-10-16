@@ -64,7 +64,7 @@ class Admin(User):
             print("Incorrect pin!")
             return
         taskList.clearList(self, pin)
-
+    # additional functionality specific to Admin - delete a specific task from the list
     def deleteItem(self, taskList, pin, id):
         if(pin != self.pin):
             print("Incorrect pin!")
@@ -131,6 +131,8 @@ class TaskList:
             #run clear method on taskList
             self.__taskList.clear()
 
+    # delete a specific task from the list - not really the intended means of calling the method,
+    # but can be done this way
     def deleteItem(self, user, pin, id):
         if type(user) != Admin or user.pin != pin:
             print("You can't delete items!")
