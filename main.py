@@ -134,14 +134,17 @@ class TaskList:
     # delete a specific task from the list - not really the intended means of calling the method,
     # but can be done this way
     def deleteItem(self, user, pin, id):
+        # prevent unauthorised users from deleting
         if type(user) != Admin or user.pin != pin:
             print("You can't delete items!")
         else:
-            #do the delete...
+            # if the list is empty, notify the user
             if len(self.__taskList) == 0:
                 print("No tasks to delete!")
+            # otherwise if it's an invalid ID, tell them that too
             elif id < 1 or id > len(self.__taskList):
                 print ("Enter a valid task ID")
+            # otherwise delete the item they've specified, adjusting for off-by-one
             else:
                 del(self.__taskList[id - 1])
                 print("Task deleted")
