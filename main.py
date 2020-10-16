@@ -32,6 +32,7 @@ class User:
         #otherwise, grab the current value and set it to whatever they've entered
         else:
             self.__pin = str(pin).zfill(4)
+            print("Pin set to " + str(pin.zfill(4)))
 
     #add task method - accepts the TaskList variable as a parameter and the description of the task
     def addTask(self, taskList, description, pin):
