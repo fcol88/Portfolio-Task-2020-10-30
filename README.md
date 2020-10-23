@@ -1,8 +1,8 @@
-# Portfolio Task 2020-10-16 (Week 2)
+# Portfolio Task 2020-10-23 (Week 2)
 
 Learning exercise for CETM65
 
-## Task List V1.0
+## Task List V1.1
 
 ### Description
 
