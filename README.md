@@ -10,6 +10,18 @@ Learning exercise for CETM65
 
 ### Usage
 
+If you're running in an IDE where the interpreter hangs around after running main.py, happy days.
+
+If you're running from command line, you might want to try:
+
+` python -i main.py `
+
+or 
+
+` python3 -i main.py `
+
+depending on your version.
+
 Three objects are instantiated at runtime for your convenience: User regularUser, Admin adminUser and TaskList tasks
 
 Users and Admins have some (very) basic authentication via the pin property. Enter your pin when you're adding an action to "make sure" someone isn't giving you silly tasks to do.
