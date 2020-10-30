@@ -54,24 +54,22 @@ class TaskList:
 
     # show task list - only active tasks
     def showTaskList(self):
-        # print a title
-        print("Task List:")
-        # loop through tasks in task list
-        for task in self.__taskList:
-            # if the task hasn't been marked as complete
-            if task.status != "Done":
-                # call the printTask method with
-                # its index in the list and the task itself
-                task.printTask(self.__taskList.index(task))
+        # call print tasks and include status check (False)
+        self.printTasks(False)
 
     # show the full task list - all tasks
     def showFullTaskList(self):
+        # call print tasks and skip status check (True)
+        self.printTasks(True)
+
+    def printTasks(self, includeCompleted):
         # print a title
         print("Task List:")
         # loop through tasks in list
         for task in self.__taskList:
-            # print all - no condition checks
-            task.printTask(self.__taskList.index(task))
+            # print all if including all or completed
+            if includeCompleted or task.status != "Done":
+                task.printTask(self.__taskList.index(task))
 
     # mark task as completed
     def completeTask(self):
