@@ -62,7 +62,7 @@ class TaskList:
             if task.status != "Done":
                 # call the printTask method with
                 # its index in the list and the task itself
-                self.printTask(self.__taskList.index(task), task)
+                task.printTask(self.__taskList.index(task))
 
     # show the full task list - all tasks
     def showFullTaskList(self):
@@ -71,7 +71,7 @@ class TaskList:
         # loop through tasks in list
         for task in self.__taskList:
             # print all - no condition checks
-            self.printTask(self.__taskList.index(task), task)
+            task.printTask(self.__taskList.index(task))
 
     # mark task as completed
     def completeTask(self):
@@ -106,26 +106,6 @@ class TaskList:
             print(self.__taskList[int(taskToComplete) - 1].completeTask())
         except (IndexError, TypeError, ValueError):
             print("You must enter a valid task ID")
-
-    # code used in more than one place so extracted into separate function
-    def printTask(self, index, task):
-        # uses format to substitute values and a final ternary
-        # operator to conditionally add on the completed date
-        # if it isn't set to None
-        taskId = "Task ID: {0}".format(index + 1)
-        user = " || Assigned User: {0} {1}".format(task.user.firstName,
-                                                   task.User.lastName)
-        task = " || Task: {0}".format(task.description)
-        status = " || Status: {0}".format(task.status)
-        created = " || Created: {0:%d/%m/%y %H:%M}"\
-            .format(task.created.timestamp)
-        completed = ""
-
-        if task.completed is not None:
-            completed = " || Completed: {0:%d/%m/%y %H:%M}"\
-                .format(task.completed.timestamp)
-
-        print(taskId + user + task + status + created + completed)
 
     # returns task list as a string
     def __str__(self):
